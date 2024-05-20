@@ -23,6 +23,10 @@ class MyTask(db.Model):
         return f'Task {self.id}'
 
 
+with app.app_context():
+    db.create_all()
+
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
     # Add a Task
